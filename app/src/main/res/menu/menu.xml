@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Opções">
+        <menu>
+            <item
+                android:id="@+id/adicionarRementente"
+                android:title="Adicionar Rementente" />
+            <item
+                android:id="@+id/removerRementente"
+                android:title="Remover Remetente" />
+            <item
+                android:id="@+id/alerta"
+                android:title="Alertas" />
+            <item
+                android:id="@+id/duvida"
+                android:title="Dúvidas" />
+            <item
+                android:id="@+id/configuracao"
+                android:title="Configurações" />
+        </menu>
+    </item>
+
+
+</menu>

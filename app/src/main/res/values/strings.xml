@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BotaoPanico</string>
+    <string name="abrir" />
+    <string name="fechar" />
 </resources>
