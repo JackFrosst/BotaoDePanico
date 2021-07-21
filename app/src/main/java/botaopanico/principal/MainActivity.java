@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
-        navigationView.setNavigationItemSelectedListener(this);
 
+        //Define um ouvinte que será notificado quando um item de menu for selecionado
+        navigationView.setNavigationItemSelectedListener(this);
 
         //adicionando o botão para acionar o menu gaveta
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
@@ -45,13 +46,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.adicionarRementente:
+            case R.id.adicionarDestinatario:
                 fechaMenuGaveta();
+                chamaAtividade(AdicionarDestinatario.class);
                 break;
-            case R.id.removerRementente:
+            case R.id.removerDestinatario:
+                chamaAtividade(RemoverDestinatario.class);
                 fechaMenuGaveta();
                 break;
             case R.id.alerta:
+                chamaAtividade(Alertas.class);
                 fechaMenuGaveta();
                 break;
             case R.id.duvida:
@@ -70,6 +74,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //fecha o menu gaveta
     private void fechaMenuGaveta() {
         drawerLayout.closeDrawer(GravityCompat.START);
+    }
+    //chama atividades atráves do Intent
+    private void chamaAtividade(Class classe){
+        Intent intent = new Intent(this,classe);
+        startActivity(intent);
     }
 
 }

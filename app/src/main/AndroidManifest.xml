@@ -9,8 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".MainActivity"
-                  android:launchMode="singleTop">
+        <activity
+            android:name=".Alertas"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".RemoverDestinatario"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AdicionarDestinatario"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

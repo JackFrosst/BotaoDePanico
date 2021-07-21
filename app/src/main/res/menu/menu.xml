@@ -4,11 +4,11 @@
     <item android:title="Opções">
         <menu>
             <item
-                android:id="@+id/adicionarRementente"
-                android:title="Adicionar Rementente" />
+                android:id="@+id/adicionarDestinatario"
+                android:title="Adicionar Destinatario" />
             <item
-                android:id="@+id/removerRementente"
-                android:title="Remover Remetente" />
+                android:id="@+id/removerDestinatario"
+                android:title="Remover Destinatario" />
             <item
                 android:id="@+id/alerta"
                 android:title="Alertas" />
