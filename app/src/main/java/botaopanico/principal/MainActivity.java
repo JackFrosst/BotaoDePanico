@@ -1,6 +1,5 @@
 package botaopanico.principal;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
 
+
     }
 
     //permite escolher os itens do menu
@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 chamaAtividade(AdicionarDestinatario.class);
                 break;
             case R.id.removerDestinatario:
-                chamaAtividade(RemoverDestinatario.class);
                 fechaMenuGaveta();
+                chamaAtividade(RemoverDestinatario.class);
                 break;
             case R.id.alerta:
                 chamaAtividade(Alertas.class);

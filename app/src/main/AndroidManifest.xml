@@ -12,12 +12,15 @@
         <activity
             android:name=".Alertas"
             android:parentActivityName=".MainActivity"/>
+
         <activity
             android:name=".RemoverDestinatario"
             android:parentActivityName=".MainActivity" />
+
         <activity
             android:name=".AdicionarDestinatario"
             android:parentActivityName=".MainActivity" />
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop">
