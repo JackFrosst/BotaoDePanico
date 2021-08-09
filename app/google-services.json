@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "729685528207",
+    "project_id": "botaodepanico-d2e36",
+    "storage_bucket": "botaodepanico-d2e36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729685528207:android:68e304e551e8794ffcaafa",
+        "android_client_info": {
+          "package_name": "botaopanico.principal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729685528207-bb0d5i4enifqhlg86gf5l1638gpj3d5c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "botaopanico.principal",
+            "certificate_hash": "2a3579f28a8e84bb21ae8e033d55253d5e24f024"
+          }
+        },
+        {
+          "client_id": "729685528207-nbaed2kevhk6nhboqjco5igmp9pkc7l7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGTMfq3QA-eXfJGbxqP8PzGjJJjlzSmiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729685528207-nbaed2kevhk6nhboqjco5igmp9pkc7l7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
