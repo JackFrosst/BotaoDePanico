@@ -50,10 +50,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fechaMenuGaveta();
                 chamaAtividade(AdicionarRemoverDestinatario.class);
                 break;
-            case R.id.removerDestinatario:
-                fechaMenuGaveta();
-                chamaAtividade(RemoverDestinatario.class);
-                break;
             case R.id.alerta:
                 chamaAtividade(Alertas.class);
                 fechaMenuGaveta();
