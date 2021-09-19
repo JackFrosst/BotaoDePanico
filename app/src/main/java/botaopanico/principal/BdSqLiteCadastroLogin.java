@@ -100,4 +100,19 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
         return listaRementente;
     }
 
+    public int consultarLogin() {
+
+        String[] colunas = {ID, NOME, SEGUNDONOME, NUMEROTELEFONE};
+
+        Cursor cursor = getWritableDatabase().query(TABELAREM, colunas, null,
+                null, null, null,
+                "upper(nome)", null);
+
+        if(cursor.getCount() == 1){
+            return 1;
+        }
+
+        return 0;
+    }
+
 }

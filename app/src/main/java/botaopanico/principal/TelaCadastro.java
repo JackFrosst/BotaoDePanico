@@ -2,10 +2,12 @@ package botaopanico.principal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class TelaCadastro extends AppCompatActivity {
 
@@ -32,7 +34,12 @@ public class TelaCadastro extends AppCompatActivity {
                 rementeDestinatario.setNumeroCelular(edtTelefone.getText().toString());
 
                 BdSqLiteCadastroLogin bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(TelaCadastro.this);
-                bdSqLiteCadastroLogin.cadastrar(rementeDestinatario);
+                long sucessoCadastro = bdSqLiteCadastroLogin.cadastrar(rementeDestinatario);
+
+                if(sucessoCadastro > 0){
+                    startActivity(new Intent(TelaCadastro.this,MainActivity.class));
+                    Toast.makeText(TelaCadastro.this, "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
