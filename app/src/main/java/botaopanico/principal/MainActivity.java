@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()){
             case R.id.adicionarDestinatario:
                 fechaMenuGaveta();
-                chamaAtividade(AdicionarDestinatario.class);
+                chamaAtividade(AdicionarRemoverDestinatario.class);
                 break;
             case R.id.removerDestinatario:
                 fechaMenuGaveta();

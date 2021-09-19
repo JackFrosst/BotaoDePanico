@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/activity_adicionarRemover_destinatario.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/activity_adicionar_destinatario.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/activity_adicionar_remover_destinatario.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/activity_alertas.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/activity_tela_cadastro.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/activity_tela_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/header.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/toolbar.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />
