@@ -3,14 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/botoes.xml" value="0.36875" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/backgradient.xml" value="0.3828125" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/background_constraint.xml" value="0.3828125" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/botoes.xml" value="0.3828125" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/cancela.xml" value="0.3828125" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/envia.xml" value="0.3828125" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/ic_baseline_done_24.xml" value="0.3828125" />
         <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_alertas.xml" value="0.35260416666666666" />
-        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_tela_cadastro.xml" value="0.35260416666666666" />
-        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_tela_login.xml" value="0.35260416666666666" />
-        <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_adicionar_remover_destinatario.xml" value="0.22" />
-        <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_alertas.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_tela_cadastro.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_tela_login.xml" value="0.15" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_tela_cadastro.xml" value="0.33" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_tela_login.xml" value="0.33" />
         <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/activity_adicionarRemover_destinatario.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/activity_adicionar_destinatario.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/mathe/AndroidStudioProjects/BotaoPanico/app/src/main/res/layout/activity_adicionar_remover_destinatario.xml" value="0.20416666666666666" />
