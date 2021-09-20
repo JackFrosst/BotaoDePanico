@@ -33,7 +33,11 @@ public class TelaCadastro extends AppCompatActivity {
                 rementeDestinatario.setSegundoNome(edtSobrenome.getText().toString());
                 rementeDestinatario.setNumeroCelular(edtTelefone.getText().toString());
 
+                BdCloudFireStore bdCloudFireStore = new BdCloudFireStore();
                 BdSqLiteCadastroLogin bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(TelaCadastro.this);
+
+                bdCloudFireStore.cadastroRemetente(rementeDestinatario);
+
                 long sucessoCadastro = bdSqLiteCadastroLogin.cadastrar(rementeDestinatario);
 
                 if(sucessoCadastro > 0){
