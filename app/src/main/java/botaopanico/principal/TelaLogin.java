@@ -15,8 +15,6 @@ public class TelaLogin extends AppCompatActivity {
 
         if(bdSqLiteCadastroLogin.consultarLogin() == 1){
             startActivity(new Intent(TelaLogin.this,MainActivity.class));
-        }else{
-            startActivity(new Intent(TelaLogin.this,TelaCadastro.class));
         }
 
     }
