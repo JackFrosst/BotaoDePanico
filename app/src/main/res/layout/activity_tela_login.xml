@@ -16,49 +16,105 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnEnviar4"
-        android:layout_width="122dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginBottom="348dp"
-        android:background="@drawable/cancela"
-        android:text="Enviar"
-        android:textAllCaps="false"
-        android:textColor="#fff"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnEnviar3"
-        android:layout_width="122dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginEnd="212dp"
-        android:layout_marginBottom="348dp"
-        android:background="@drawable/envia"
-        android:text="Cancelar"
-        android:textAllCaps="false"
-        android:textColor="#fff"
-        android:textSize="15dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="381dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/backgradient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnEnviar" />
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.491">
+
+        <Button
+            android:id="@+id/btnEnviar6"
+            android:layout_width="0dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/cancela"
+            android:text="Cadastrar - se"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnEnviar5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+        <Button
+            android:id="@+id/btnEnviar5"
+            android:layout_width="0dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/cancela"
+            android:text="Entrar"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnEnviar3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEnviar6" />
+
+        <Button
+            android:id="@+id/btnEnviar3"
+            android:layout_width="0dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/envia"
+            android:text="Sair"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEnviar5" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="102dp"
+            android:layout_height="96dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnEnviar6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/login2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="183dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="186dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="sans-serif-black"
         android:text="Bem-vindo"
         android:textAllCaps="false"
-        android:textSize="34dp"
+        android:textColor="#1C1919"
+        android:textSize="37dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
