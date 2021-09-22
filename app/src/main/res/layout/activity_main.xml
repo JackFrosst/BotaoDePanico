@@ -14,6 +14,78 @@
         android:layout_height="match_parent"
         android:background="#FDACAE">
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="445dp"
+            android:layout_height="797dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/backblurimage" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="380dp"
+            android:layout_height="557dp"
+            android:background="@drawable/backgradient"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include"
+            app:layout_constraintVertical_bias="0.864">
+
+            <Button
+                android:id="@+id/btnSairMain"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="42dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/envia"
+                android:text="Sair"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="349dp"
+                android:layout_height="217dp"
+                android:layout_marginTop="112dp"
+                android:background="@drawable/panicbutton"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.516"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="168dp"
+                android:layout_height="173dp"
+                app:srcCompat="@drawable/aviso"
+                tools:layout_editor_absoluteX="108dp"
+                tools:layout_editor_absoluteY="113dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="Botão do Pânico"
+                android:textColor="#000"
+                tools:layout_editor_absoluteX="137dp"
+                tools:layout_editor_absoluteY="300dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <include
             android:id="@+id/include"
             layout="@layout/toolbar"
@@ -25,47 +97,6 @@
             app:layout_constraintTop_toTopOf="parent">
         </include>
 
-
-        <ImageView
-            android:id="@+id/imgBtnAlerta"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="13dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include"
-            app:srcCompat="@drawable/button_green" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="176dp"
-            android:layout_height="170dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6"
-            app:srcCompat="@drawable/girl_inicial" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="184dp"
-            android:layout_height="173dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="69dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6"
-            app:srcCompat="@drawable/balao_fala" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

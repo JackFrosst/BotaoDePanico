@@ -6,10 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".Alertas">
 
+
     <include
         layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize" />
+        android:layout_height="?actionBarSize"
+        />
+
+
+
 
 
 

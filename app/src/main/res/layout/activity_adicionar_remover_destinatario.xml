@@ -6,4 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".AdicionarRemoverDestinatario">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </include>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

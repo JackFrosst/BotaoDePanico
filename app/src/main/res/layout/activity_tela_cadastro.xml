@@ -8,14 +8,14 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="536dp"
-        android:layout_height="941dp"
-        android:src="@drawable/blurbackground"
+        android:id="@+id/imageView2"
+        android:layout_width="494dp"
+        android:layout_height="863dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backblurimage" />
 
     <TextView
         android:id="@+id/txtCadastro"
@@ -31,13 +31,13 @@
         android:textColor="#1C1919"
         android:textSize="37dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@+id/ConstraintViewBlur"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/ConstraintViewBlur"
         android:layout_width="381dp"
         android:layout_height="430dp"
         android:layout_marginStart="8dp"
@@ -63,11 +63,11 @@
             android:textColor="#fff"
             android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnEnviar2"
+            app:layout_constraintEnd_toStartOf="@+id/btnCancelar"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btnEnviar2"
+            android:id="@+id/btnCancelar"
             android:layout_width="0dp"
             android:layout_height="33dp"
             android:layout_marginStart="12dp"

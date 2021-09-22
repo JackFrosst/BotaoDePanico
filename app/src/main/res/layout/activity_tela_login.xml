@@ -7,17 +7,17 @@
     tools:context=".TelaLogin">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="434dp"
-        android:layout_height="851dp"
-        android:src="@drawable/blurbackground"
+        android:id="@+id/imgBackground"
+        android:layout_width="478dp"
+        android:layout_height="880dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backblurimage" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/ConstraintViewBlur"
         android:layout_width="381dp"
         android:layout_height="300dp"
         android:layout_marginStart="8dp"
@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.491">
 
         <Button
-            android:id="@+id/btnEnviar6"
+            android:id="@+id/btnCadastrar"
             android:layout_width="0dp"
             android:layout_height="33dp"
             android:layout_marginStart="32dp"
@@ -45,13 +45,13 @@
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="15dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnEnviar5"
+            app:layout_constraintBottom_toTopOf="@+id/btnEntrar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+            app:layout_constraintTop_toBottomOf="@+id/imgViewIcon" />
 
         <Button
-            android:id="@+id/btnEnviar5"
+            android:id="@+id/btnEntrar"
             android:layout_width="0dp"
             android:layout_height="33dp"
             android:layout_marginStart="32dp"
@@ -62,13 +62,13 @@
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="15dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnEnviar3"
+            app:layout_constraintBottom_toTopOf="@+id/btnSair"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnEnviar6" />
+            app:layout_constraintTop_toBottomOf="@+id/btnCadastrar" />
 
         <Button
-            android:id="@+id/btnEnviar3"
+            android:id="@+id/btnSair"
             android:layout_width="0dp"
             android:layout_height="33dp"
             android:layout_marginStart="32dp"
@@ -82,16 +82,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnEnviar5" />
+            app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/imgViewIcon"
             android:layout_width="102dp"
             android:layout_height="96dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnEnviar6"
+            app:layout_constraintBottom_toTopOf="@+id/btnCadastrar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -100,7 +100,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtBemvindo"
         android:layout_width="186dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
@@ -112,7 +112,7 @@
         android:textColor="#1C1919"
         android:textSize="37dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@+id/ConstraintViewBlur"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
