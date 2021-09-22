@@ -9,6 +9,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
+    ImageView botaoAlerta;
+    BdCloudFireStore bdCloudFireStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
+        botaoAlerta = findViewById(R.id.imgBtnAlerta);
+
+        botaoAlerta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bdCloudFireStore = new BdCloudFireStore();
+                bdCloudFireStore.enviarAlerta();
+            }
+        });
 
         //Define um ouvinte que será notificado quando um item de menu for selecionado
         navigationView.setNavigationItemSelectedListener(this);
