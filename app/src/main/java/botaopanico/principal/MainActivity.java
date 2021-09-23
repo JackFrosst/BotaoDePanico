@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
-        botaoAlerta = findViewById(R.id.imgBtnAlerta);
+        botaoAlerta = findViewById(R.id.imageView13);
 
         botaoAlerta.setOnClickListener(new View.OnClickListener() {
             @Override
