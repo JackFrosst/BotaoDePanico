@@ -53,7 +53,7 @@
         <Button
             android:id="@+id/btnEnviar"
             android:layout_width="0dp"
-            android:layout_height="33dp"
+            android:layout_height="48dp"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="40dp"
@@ -69,7 +69,7 @@
         <Button
             android:id="@+id/btnCancelar"
             android:layout_width="0dp"
-            android:layout_height="33dp"
+            android:layout_height="48dp"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="40dp"
@@ -89,11 +89,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="170dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/caixastexto"
             android:ems="10"
             android:hint="Nome"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
             app:layout_constraintBottom_toTopOf="@+id/edtSobrenome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +103,7 @@
         <EditText
             android:id="@+id/edtSobrenome"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
@@ -125,6 +126,8 @@
             android:ems="10"
             android:hint="(11) 97096-3812"
             android:inputType="phone"
+            android:focusable="false"
+            android:enabled="true"
             app:layout_constraintBottom_toTopOf="@+id/btnEnviar"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -142,15 +145,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.666"
             app:srcCompat="@drawable/user" />
-
-        <Button
-            android:id="@+id/btnVerificaNumero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/edtNumTelefone"
-            tools:layout_editor_absoluteY="270dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
