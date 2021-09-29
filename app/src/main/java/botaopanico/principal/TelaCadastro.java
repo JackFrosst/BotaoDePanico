@@ -1,6 +1,5 @@
 package botaopanico.principal;
 
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -22,15 +21,21 @@ import com.google.android.gms.auth.api.credentials.CredentialPickerConfig;
 import com.google.android.gms.auth.api.credentials.HintRequest;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class TelaCadastro extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
     private EditText edtNome, edtSobrenome, edtTelefone;
-    Button btnEnviar, btnVerificaNumero;
-    RementeDestinatario rementeDestinatario = new RementeDestinatario();
-
+    private Button btnEnviar;
+    private Remente remente;
     private GoogleApiClient googleApiClient_telefone;
+    private FirebaseFirestore firebaseFirestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,26 +47,11 @@ public class TelaCadastro extends AppCompatActivity implements GoogleApiClient.C
         edtTelefone = findViewById(R.id.edtNumTelefone);
         btnEnviar = findViewById(R.id.btnEnviar);
 
-
+        // metodo para realizar o cadastro no firebase e sqlite apos o clique no botão
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rementeDestinatario.setPrimeiroNome(edtNome.getText().toString());
-                rementeDestinatario.setSegundoNome(edtSobrenome.getText().toString());
-                rementeDestinatario.setNumeroCelular(edtTelefone.getText().toString());
-
-                BdCloudFireStore bdCloudFireStore = new BdCloudFireStore();
-                BdSqLiteCadastroLogin bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(TelaCadastro.this);
-
-                bdCloudFireStore.cadastroRemetente(rementeDestinatario);
-
-                long sucessoCadastro = bdSqLiteCadastroLogin.cadastrar(rementeDestinatario);
-
-                if(sucessoCadastro > 0){
-                    startActivity(new Intent(TelaCadastro.this,MainActivity.class));
-                    Toast.makeText(TelaCadastro.this, "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
-                }
-
+                cadastroRemetente();
             }
         });
 
@@ -71,6 +61,38 @@ public class TelaCadastro extends AppCompatActivity implements GoogleApiClient.C
 
         obterNumeroContato();
 
+    }
+
+    // metodo utilizado para cadastrar remetentes no banco de dados firestore e sqlite
+    // o cadastro no sqlite só ocorre se for cadastrado com sucesso no firestore
+    public void cadastroRemetente() {
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        remente = new Remente();
+        BdSqLiteCadastroLogin bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(TelaCadastro.this);
+
+        Map<String, String> usuario = new HashMap<>();
+
+        remente.setPrimeiroNome(edtNome.getText().toString());
+        remente.setSegundoNome(edtSobrenome.getText().toString());
+        remente.setNumeroCelular(edtTelefone.getText().toString());
+
+        firebaseFirestore.collection("usuarios")
+                .document(remente.getNumeroCelular())
+                .set(usuario)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                    bdSqLiteCadastroLogin.cadastrarRemetente(remente);
+                    startActivity(new Intent(TelaCadastro.this,MainActivity.class));
+                    Toast.makeText(TelaCadastro.this, "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
     }
 
     //----------------------- METODOS DO GOOGLE API PARA CONSEGUIR O NÚMERO DO USUÁRIO ---------------------------------

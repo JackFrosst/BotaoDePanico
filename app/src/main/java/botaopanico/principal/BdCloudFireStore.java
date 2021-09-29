@@ -1,6 +1,7 @@
 package botaopanico.principal;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,16 +24,7 @@ import io.perfmark.Tag;
 
 public class BdCloudFireStore {
 
-    FirebaseFirestore firebaseFirestore;
-
-    public void cadastroRemetente(RementeDestinatario telRementente) {
-        firebaseFirestore = FirebaseFirestore.getInstance();
-
-        Map<String, String> data = new HashMap<>();
-
-        firebaseFirestore.collection("usuario").document(telRementente.getNumeroCelular()).set(data);
-
-    }
+    private FirebaseFirestore firebaseFirestore;
 
     public void enviarAlerta() {
         firebaseFirestore = FirebaseFirestore.getInstance();

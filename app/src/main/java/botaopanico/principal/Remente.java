@@ -1,6 +1,6 @@
 package botaopanico.principal;
 
-public class RementeDestinatario {
+public class Remente {
 
     private String primeiroNome;
     private String segundoNome;

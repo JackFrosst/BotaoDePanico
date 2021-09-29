@@ -9,14 +9,18 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
+    // variaveis para criação de banco e tabela de remetente
     private static final String NOME_BANCO = "RemetenteDestinatario.db";
-    private static final int VERSAO = 1;
+    private static final int VERSAO = 2;
     private static final String TABELAREM = "tbRementente";
-    private static final String TABELADEST = "tbDestinatario";
     private static final String ID = "id";
     private static final String NOME = "nome";
     private static final String SEGUNDONOME = "segundoNome";
     private static final String NUMEROTELEFONE = "numeroTelefone";
+    // variaveis para a criação da tabela de destinatários
+    private static final String TABELADEST = "tbDestinatario";
+    private static final String ID_DEST = "id";
+    private static final String DESTINATARIO = "numDestinatario";
 
 
     public BdSqLiteCadastroLogin(Context context) {
@@ -25,12 +29,20 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE " + TABELAREM + " (" +
+        //cria se não existir a tabela de remetente
+        String sqlRementente = "CREATE TABLE IF NOT EXISTS " + TABELAREM + " (" +
                 ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 NOME + " TEXT," +
                 SEGUNDONOME + " TEXT," +
                 NUMEROTELEFONE + " TEXT);";
-        db.execSQL(sql);
+
+        db.execSQL(sqlRementente);
+        //cria se não existir a tabela de destinatario
+        String sqlDestinatario = "CREATE TABLE IF NOT EXISTS " + TABELADEST + " (" +
+                ID_DEST + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                DESTINATARIO + " TEXT);";
+
+        db.execSQL(sqlDestinatario);
 
     }
 
@@ -40,42 +52,42 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
         db.execSQL(sql);
         onCreate(db);
     }
-
-    public long cadastrar(RementeDestinatario rementeDestinatario) {
+    // ========== metodos para o cadastrar,alterar,excluir e consultar a tabela REMETENTE =========
+    public long cadastrarRemetente(Remente remente) {
         ContentValues valores = new ContentValues();
         long retornoDB;
 
-        valores.put(NOME, rementeDestinatario.getPrimeiroNome());
-        valores.put(SEGUNDONOME, rementeDestinatario.getSegundoNome());
-        valores.put(NUMEROTELEFONE, rementeDestinatario.getNumeroCelular());
+        valores.put(NOME, remente.getPrimeiroNome());
+        valores.put(SEGUNDONOME, remente.getSegundoNome());
+        valores.put(NUMEROTELEFONE, remente.getNumeroCelular());
 
         retornoDB = getWritableDatabase().insert(TABELAREM, null, valores);
         return retornoDB;
     }
 
-    public long alterar(RementeDestinatario rementeDestinatario) {
+    public long alterarRemetente(Remente remente) {
         ContentValues valores = new ContentValues();
         long retornoDB;
 
-        valores.put(NOME, rementeDestinatario.getPrimeiroNome());
-        valores.put(SEGUNDONOME, rementeDestinatario.getSegundoNome());
-        valores.put(NUMEROTELEFONE, rementeDestinatario.getNumeroCelular());
+        valores.put(NOME, remente.getPrimeiroNome());
+        valores.put(SEGUNDONOME, remente.getSegundoNome());
+        valores.put(NUMEROTELEFONE, remente.getNumeroCelular());
 
 
-        String[] args = {String.valueOf(rementeDestinatario.getId())};
+        String[] args = {String.valueOf(remente.getId())};
         retornoDB = getWritableDatabase().update(TABELAREM, valores, "id=?", args);
         return retornoDB;
     }
 
-    public long excluir(RementeDestinatario rementeDestinatario) {
+    public long excluirRemetente(Remente remente) {
         long retornoDB;
 
-        String[] args = {String.valueOf(rementeDestinatario.getId())};
+        String[] args = {String.valueOf(remente.getId())};
         retornoDB = getWritableDatabase().delete(TABELAREM, ID + "=?", args);
         return retornoDB;
     }
 
-    public ArrayList<RementeDestinatario> consultar() {
+    public ArrayList<Remente> consultarRemetente() {
 
         String[] colunas = {ID, NOME, SEGUNDONOME, NUMEROTELEFONE};
 
@@ -83,24 +95,24 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
                 null, null, null,
                 "upper(nome)", null);
 
-        ArrayList<RementeDestinatario> listaRementente = new ArrayList<>();
+        ArrayList<Remente> listaRementente = new ArrayList<>();
 
-        RementeDestinatario rementeDestinatario;
+        Remente remente;
 
         while (cursor.moveToNext()) {
-            rementeDestinatario = new RementeDestinatario();
+            remente = new Remente();
 
-            rementeDestinatario.setId(cursor.getInt(0));
-            rementeDestinatario.setPrimeiroNome(cursor.getString(1));
-            rementeDestinatario.setSegundoNome(cursor.getString(2));
-            rementeDestinatario.setNumeroCelular(cursor.getString(3));
+            remente.setId(cursor.getInt(0));
+            remente.setPrimeiroNome(cursor.getString(1));
+            remente.setSegundoNome(cursor.getString(2));
+            remente.setNumeroCelular(cursor.getString(3));
 
-            listaRementente.add(rementeDestinatario);
+            listaRementente.add(remente);
         }
         return listaRementente;
     }
 
-    public int consultarLogin() {
+    public int consultarLoginRemetente() {
 
         String[] colunas = {ID, NOME, SEGUNDONOME, NUMEROTELEFONE};
 
@@ -115,4 +127,15 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
         return 0;
     }
 
+    // ========== metodos para o cadastrar,alterar,excluir e consultar a tabela DESTINATARIO =========
+
+    public long cadastrarDestinatario(Destinatario destinatario) {
+        ContentValues valores = new ContentValues();
+        long retornoDB;
+
+        valores.put(DESTINATARIO, destinatario.getNumeroCelular());
+
+        retornoDB = getWritableDatabase().insert(TABELADEST, null, valores);
+        return retornoDB;
+    }
 }

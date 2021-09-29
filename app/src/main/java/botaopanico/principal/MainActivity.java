@@ -53,6 +53,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+    //metodo para bloquear o botão de voltar quando o usuario esta na tela inicial, para evitar
+    // que volte até a tela de cadastro
+    @Override
+    public void onBackPressed() {
+
+    }
 
     //permite escolher os itens do menu
     @Override
