@@ -5,13 +5,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
     // variaveis para criação de banco e tabela de remetente
     private static final String NOME_BANCO = "RemetenteDestinatario.db";
-    private static final int VERSAO = 2;
+    private static final int VERSAO = 5;
     private static final String TABELAREM = "tbRementente";
     private static final String ID = "id";
     private static final String NOME = "nome";
@@ -21,6 +23,7 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
     private static final String TABELADEST = "tbDestinatario";
     private static final String ID_DEST = "id";
     private static final String DESTINATARIO = "numDestinatario";
+    private static final String NOMEDEST = "nomeDestinatario";
 
 
     public BdSqLiteCadastroLogin(Context context) {
@@ -40,7 +43,8 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
         //cria se não existir a tabela de destinatario
         String sqlDestinatario = "CREATE TABLE IF NOT EXISTS " + TABELADEST + " (" +
                 ID_DEST + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                DESTINATARIO + " TEXT);";
+                DESTINATARIO + " TEXT," +
+                NOMEDEST + " TEXT);";
 
         db.execSQL(sqlDestinatario);
 
@@ -48,8 +52,11 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql = "DROP TABLE IF EXISTS " + TABELAREM;
-        db.execSQL(sql);
+        String sqlRem = "DROP TABLE IF EXISTS " + TABELAREM;
+        db.execSQL(sqlRem);
+        onCreate(db);
+        String sqlDest = "DROP TABLE IF EXISTS " + TABELADEST;
+        db.execSQL(sqlDest);
         onCreate(db);
     }
     // ========== metodos para o cadastrar,alterar,excluir e consultar a tabela REMETENTE =========
@@ -120,7 +127,7 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
                 null, null, null,
                 "upper(nome)", null);
 
-        if(cursor.getCount() == 1){
+        if(cursor.getCount() >= 1){
             return 1;
         }
 
@@ -134,8 +141,35 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
         long retornoDB;
 
         valores.put(DESTINATARIO, destinatario.getNumeroCelular());
+        valores.put(NOMEDEST, destinatario.getNomeDest());
 
         retornoDB = getWritableDatabase().insert(TABELADEST, null, valores);
         return retornoDB;
+    }
+
+    public ArrayList<Destinatario> consultarDestinatario() {
+
+        String[] colunas = {ID_DEST, DESTINATARIO, NOMEDEST};
+
+        Cursor cursor = getWritableDatabase().query(TABELADEST, colunas, null,
+                null, null, null,
+                 null);
+
+        ArrayList<Destinatario> listaDestinatario = new ArrayList<>();
+
+        Destinatario destinatario;
+
+        while (cursor.moveToNext()) {
+            destinatario = new Destinatario();
+
+            destinatario.setId(cursor.getInt(0));
+            destinatario.setNumeroCelular(cursor.getString(1));
+            destinatario.setNomeDest(cursor.getString(2));
+            listaDestinatario.add(destinatario);
+        }
+
+        return listaDestinatario;
+
+
     }
 }

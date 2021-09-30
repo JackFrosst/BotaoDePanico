@@ -2,7 +2,16 @@ package botaopanico.principal;
 
 public class Destinatario {
     private String numeroCelular;
+    private String nomeDest;
     private int id;
+
+    public String getNomeDest() {
+        return nomeDest;
+    }
+
+    public void setNomeDest(String nomeDest) {
+        this.nomeDest = nomeDest;
+    }
 
     public String getNumeroCelular() {
         return numeroCelular;
@@ -18,5 +27,10 @@ public class Destinatario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return getNomeDest()+ " - " + getNumeroCelular();
     }
 }

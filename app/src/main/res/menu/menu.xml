@@ -4,11 +4,8 @@
     <item android:title="Opções">
         <menu>
             <item
-                android:id="@+id/adicionarDestinatario"
+                android:id="@+id/adicionarRemoverDestinatario"
                 android:title="Adicionar Destinatario" />
-            <item
-                android:id="@+id/removerDestinatario"
-                android:title="Remover Destinatario" />
             <item
                 android:id="@+id/alerta"
                 android:title="Alertas" />

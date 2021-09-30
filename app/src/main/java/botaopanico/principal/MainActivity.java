@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.adicionarDestinatario:
+            case R.id.adicionarRemoverDestinatario:
                 fechaMenuGaveta();
                 chamaAtividade(AdicionarRemoverDestinatario.class);
                 break;
