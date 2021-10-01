@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -36,10 +37,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         botaoAlerta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bdCloudFireStore = new BdCloudFireStore();
-                bdCloudFireStore.enviarAlerta();
+
             }
         });
+
 
         //Define um ouvinte que será notificado quando um item de menu for selecionado
         navigationView.setNavigationItemSelectedListener(this);

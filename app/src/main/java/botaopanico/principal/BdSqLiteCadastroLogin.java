@@ -116,6 +116,7 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
 
             listaRementente.add(remente);
         }
+
         return listaRementente;
     }
 
@@ -169,7 +170,12 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
         }
 
         return listaDestinatario;
+    }
 
-
+    public long excluirDestinatario(Destinatario destinatario) {
+        long retornoDB;
+        String[] args = {String.valueOf(destinatario.getId())};
+        retornoDB = getWritableDatabase().delete(TABELADEST, ID_DEST + "=?", args);
+        return retornoDB;
     }
 }

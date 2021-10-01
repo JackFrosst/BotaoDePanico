@@ -76,23 +76,29 @@ public class TelaCadastro extends AppCompatActivity implements GoogleApiClient.C
         remente.setSegundoNome(edtSobrenome.getText().toString());
         remente.setNumeroCelular(edtTelefone.getText().toString());
 
-        firebaseFirestore.collection("usuarios")
-                .document(remente.getNumeroCelular())
-                .set(usuario)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                    bdSqLiteCadastroLogin.cadastrarRemetente(remente);
-                    startActivity(new Intent(TelaCadastro.this,MainActivity.class));
-                    Toast.makeText(TelaCadastro.this, "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
+        // verifica se as edittext estão vazias, se estiverem apresentam o Toast
+        if(!edtNome.getText().toString().isEmpty() && !edtSobrenome.getText().toString().isEmpty() ) {
 
-                    }
-                });
+            firebaseFirestore.collection("usuarios")
+                    .document(remente.getNumeroCelular())
+                    .set(usuario)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            bdSqLiteCadastroLogin.cadastrarRemetente(remente);
+                            startActivity(new Intent(TelaCadastro.this, MainActivity.class));
+                            Toast.makeText(TelaCadastro.this, "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                        }
+                    });
+        }else{
+            Toast.makeText(TelaCadastro.this, "Campos Obrigatórios", Toast.LENGTH_SHORT).show();
+        }
     }
 
     //----------------------- METODOS DO GOOGLE API PARA CONSEGUIR O NÚMERO DO USUÁRIO ---------------------------------

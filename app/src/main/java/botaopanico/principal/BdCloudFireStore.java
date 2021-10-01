@@ -17,6 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.WriteBatch;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,34 +26,35 @@ import io.perfmark.Tag;
 public class BdCloudFireStore {
 
     private FirebaseFirestore firebaseFirestore;
+    private BdSqLiteCadastroLogin bdSqLiteCadastroLogin;
+    private ArrayList<Remente> arrayRemetente;
 
-    public void enviarAlerta() {
+    public void recebeAlerta() {
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        WriteBatch batch = firebaseFirestore.batch();
+        arrayRemetente = bdSqLiteCadastroLogin.consultarRemetente();
+        String numeroRementente = arrayRemetente.get(0).getNumeroCelular();
 
-        Map<String, String> data = new HashMap<>();
-        data.put("alerta","Ajuda");
-        // Set the value of 'NYC'
-        DocumentReference Ref1 = firebaseFirestore.collection("usuario")
-                .document("11957980351");
-        batch.set(Ref1,data);
-
-        DocumentReference Ref2 = firebaseFirestore.collection("usuario")
-                .document("11965085125");
-        batch.set(Ref2,data);
-
-        DocumentReference Ref3 = firebaseFirestore.collection("usuario")
-                .document("119786573432");
-        batch.set(Ref3,data);
-
-        // Commit the batch
-        batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+        /*
+        DocumentReference docRef = firebaseFirestore.collection("usuarios").document(numeroRementente);
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                // ...
+            public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                }
+                else {
+                }
             }
         });
+
+         */
+    }
+
+    public void enviaAlerta(){
 
     }
 }
