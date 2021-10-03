@@ -116,7 +116,6 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
 
             listaRementente.add(remente);
         }
-
         return listaRementente;
     }
 

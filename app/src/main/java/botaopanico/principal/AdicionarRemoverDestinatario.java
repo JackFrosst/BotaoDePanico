@@ -72,6 +72,9 @@ public class AdicionarRemoverDestinatario extends AppCompatActivity {
                                 destinatario = (Destinatario) adapterDestinatario.getItem(position);
                                 destinatario.setId(destinatario.getId());
                                 bdSqLiteCadastroLogin.excluirDestinatario(destinatario);
+                                Log.e("4343",String.valueOf(destinatario.getId()));
+
+
                                 listaDestinatario();
                             }
                         }).setNegativeButton("Não", new DialogInterface.OnClickListener() {

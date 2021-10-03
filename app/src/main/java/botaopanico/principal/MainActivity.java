@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         botaoAlerta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                BdCloudFireStore bdCloudFireStore = new BdCloudFireStore();
+                bdCloudFireStore.enviaAlerta(MainActivity.this);
             }
         });
 
