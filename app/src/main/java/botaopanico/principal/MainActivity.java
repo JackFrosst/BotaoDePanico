@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
     ImageView botaoAlerta;
-    BdCloudFireStore bdCloudFireStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +33,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navigationView);
         botaoAlerta = findViewById(R.id.imageView13);
 
+        startService(new Intent(getBaseContext(), RecebeAlertaThread.class));
+
         botaoAlerta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BdCloudFireStore bdCloudFireStore = new BdCloudFireStore();
-                bdCloudFireStore.enviaAlerta(MainActivity.this);
+                startService(new Intent(getBaseContext(), EnvioAlertaThread.class));
             }
         });
 

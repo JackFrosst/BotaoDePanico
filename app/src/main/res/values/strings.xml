@@ -2,4 +2,8 @@
     <string name="app_name">BotaoPanico</string>
     <string name="abrir" />
     <string name="fechar" />
+    <string name="alerta" >Alertas</string>
+    <string name="descricaoAlerta" >Notificação para receber alertas</string>
+
+
 </resources>

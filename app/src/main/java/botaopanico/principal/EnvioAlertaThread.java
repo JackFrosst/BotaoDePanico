@@ -1,64 +1,44 @@
 package botaopanico.principal;
 
-import android.content.Context;
-import android.os.Bundle;
+import static android.content.ContentValues.TAG;
+
+import android.app.IntentService;
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.SetOptions;
-import com.google.firebase.firestore.WriteBatch;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.perfmark.Tag;
-
-public class BdCloudFireStore extends AppCompatActivity {
-
+// esta classe é utilizada para criar métodos que funcionem em segundo plano
+public class EnvioAlertaThread extends Service {
     private FirebaseFirestore firebaseFirestore;
     private BdSqLiteCadastroLogin bdSqLiteCadastroLogin;
-    private Remente remente;
 
-    public void recebeAlerta() {
-        firebaseFirestore = FirebaseFirestore.getInstance();
-
-        /*
-        DocumentReference docRef = firebaseFirestore.collection("usuarios").document(numeroRementente);
-        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot snapshot,
-                                @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                }
-
-                if (snapshot != null && snapshot.exists()) {
-                }
-                else {
-                }
-            }
-        });
-
-         */
+    @Override
+    public IBinder onBind(Intent arg0) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
-    public void enviaAlerta(Context bdSqLite ) {
+    //método trabalha em segundo plano sem interferir na atividade principal
+    //atráves deste método quando aciona o botão os alertas são enviados para os destinatários
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(bdSqLite);
+        bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(EnvioAlertaThread.this);
         ArrayList<Destinatario> arrayList = new ArrayList<>();
         arrayList = bdSqLiteCadastroLogin.consultarDestinatario();
 
@@ -73,7 +53,6 @@ public class BdCloudFireStore extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Log.e("4343","Mensagem enviada");
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -82,6 +61,13 @@ public class BdCloudFireStore extends AppCompatActivity {
                         }
                     });
         }
+        return START_REDELIVER_INTENT;
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
 
