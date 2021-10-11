@@ -31,6 +31,6 @@ public class Destinatario {
 
     @Override
     public String toString() {
-        return getNomeDest()+ " - " + getNumeroCelular();
+        return getId() + " " + getNomeDest()+ " - " + getNumeroCelular();
     }
 }
