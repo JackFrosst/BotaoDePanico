@@ -53,10 +53,10 @@
         <Button
             android:id="@+id/btnEnviar"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="40dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/cancela"
             android:text="Cadastrar"
             android:textAllCaps="false"
@@ -69,10 +69,10 @@
         <Button
             android:id="@+id/btnCancelar"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="40dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/envia"
             android:text="Cancelar"
             android:textAllCaps="false"
@@ -85,11 +85,11 @@
         <EditText
             android:id="@+id/edtNome"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/caixastexto"
             android:ems="10"
             android:hint="Nome"
@@ -98,7 +98,7 @@
             app:layout_constraintBottom_toTopOf="@+id/edtSobrenome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
         <EditText
             android:id="@+id/edtSobrenome"
@@ -106,7 +106,7 @@
             android:layout_height="48dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/caixastexto"
             android:ems="10"
             android:hint="Sobrenome"
@@ -114,36 +114,37 @@
             app:layout_constraintBottom_toTopOf="@+id/edtNumTelefone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtNome" />
 
         <EditText
             android:id="@+id/edtNumTelefone"
             android:layout_width="206dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="36dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/caixastexto"
             android:ems="10"
-            android:hint="(11) 97096-3812"
-            android:inputType="phone"
-            android:focusable="false"
             android:enabled="true"
+            android:focusable="false"
+            android:hint="(11) 92096-3811"
+            android:inputType="phone"
             app:layout_constraintBottom_toTopOf="@+id/btnEnviar"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtSobrenome" />
 
         <ImageView
             android:id="@+id/imageView10"
             android:layout_width="138dp"
             android:layout_height="116dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/edtNome"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.541"
+            app:layout_constraintHorizontal_bias="0.537"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.666"
             app:srcCompat="@drawable/user" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,9 +20,9 @@
         android:id="@+id/ConstraintViewBlur"
         android:layout_width="381dp"
         android:layout_height="300dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/backgradient"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_height="33dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="75dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/cancela"
@@ -45,27 +45,10 @@
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="15dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnEntrar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgViewIcon" />
-
-        <Button
-            android:id="@+id/btnEntrar"
-            android:layout_width="0dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/cancela"
-            android:text="Entrar"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="15dp"
             app:layout_constraintBottom_toTopOf="@+id/btnSair"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnCadastrar" />
+            app:layout_constraintTop_toBottomOf="@+id/imgViewIcon" />
 
         <Button
             android:id="@+id/btnSair"
@@ -81,13 +64,12 @@
             android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imgViewIcon"
-            android:layout_width="102dp"
-            android:layout_height="96dp"
+            android:layout_width="124dp"
+            android:layout_height="105dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
@@ -109,7 +91,7 @@
         android:fontFamily="sans-serif-black"
         android:text="Bem-vindo"
         android:textAllCaps="false"
-        android:textColor="#1C1919"
+        android:textColor="#222020"
         android:textSize="37dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ConstraintViewBlur"
