@@ -3,10 +3,15 @@ package botaopanico.principal;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         startService(new Intent(getBaseContext(), RecebeAlertaThread.class));
 
+        // inicia a classe EnvioAlertaThread, fazendo que a mensagem seja enviada até o banco
+        // firestore
         botaoAlerta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

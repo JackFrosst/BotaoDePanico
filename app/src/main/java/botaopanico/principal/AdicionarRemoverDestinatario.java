@@ -69,11 +69,12 @@ public class AdicionarRemoverDestinatario extends AppCompatActivity {
                         .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                destinatario = (Destinatario) adapterDestinatario.getItem(position);
-                                destinatario.setId(destinatario.getId());
-                                bdSqLiteCadastroLogin.excluirDestinatario(destinatario);
+                                bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(AdicionarRemoverDestinatario.this);
+                                destinatario = (Destinatario) parent.getItemAtPosition(position);
                                 Log.e("4343",String.valueOf(destinatario.getId()));
+                                Log.e("4343",String.valueOf(position));
 
+                                bdSqLiteCadastroLogin.excluirDestinatario(destinatario);
                                 listaDestinatario();
                             }
                         }).setNegativeButton("Não", new DialogInterface.OnClickListener() {
@@ -104,7 +105,9 @@ public class AdicionarRemoverDestinatario extends AppCompatActivity {
     //metodo para verificar se o destinatario existe no banco do firebase antes de cadastrar na lista do sqlite
     public void consultaCadastraDestinatario(){
         firebaseFirestore = FirebaseFirestore.getInstance();
+
         String numeroDestinatario = edtCadastraDestinatario.getText().toString();
+
         firebaseFirestore.collection("usuarios")
                 .document(numeroDestinatario)
                 .get()
