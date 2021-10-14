@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="494dp"
-        android:layout_height="863dp"
+        android:layout_width="570dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,9 +85,9 @@
         <EditText
             android:id="@+id/edtNome"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="47dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/caixastexto"
@@ -95,6 +95,8 @@
             android:hint="Nome"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:textColor="#000"
+            android:textColorHint="#6E6161"
             app:layout_constraintBottom_toTopOf="@+id/edtSobrenome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +105,7 @@
         <EditText
             android:id="@+id/edtSobrenome"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="47dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="10dp"
@@ -111,6 +113,8 @@
             android:ems="10"
             android:hint="Sobrenome"
             android:inputType="textPersonName"
+            android:textColor="#000"
+            android:textColorHint="#FF636262"
             app:layout_constraintBottom_toTopOf="@+id/edtNumTelefone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -120,7 +124,7 @@
         <EditText
             android:id="@+id/edtNumTelefone"
             android:layout_width="206dp"
-            android:layout_height="50dp"
+            android:layout_height="47dp"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/caixastexto"
@@ -129,6 +133,7 @@
             android:focusable="false"
             android:hint="(11) 92096-3811"
             android:inputType="phone"
+            android:textColor="#000"
             app:layout_constraintBottom_toTopOf="@+id/btnEnviar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtSobrenome" />

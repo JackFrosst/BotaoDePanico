@@ -24,10 +24,10 @@
         <Button
             android:id="@+id/btnCadastraDestinatario"
             android:layout_width="0dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="51dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="66dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="32dp"
             android:background="@drawable/cancela"
             android:text="Cadastrar"
             android:textAllCaps="false"
@@ -42,8 +42,9 @@
             android:layout_width="0dp"
             android:layout_height="47dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/caixastexto"
             android:ems="10"
             android:hint="Insira um Apelido"
@@ -52,24 +53,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="138dp"
-            android:layout_height="116dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/edtApelidoDestinatario"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/user" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
         <EditText
             android:id="@+id/edtCadastraDestinatario"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="90dp"
@@ -89,9 +78,9 @@
             android:id="@+id/lstDestinatario"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -99,6 +88,18 @@
             app:layout_constraintTop_toBottomOf="@+id/btnCadastraDestinatario">
 
         </ListView>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="119dp"
+            android:layout_height="105dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/addduser" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include

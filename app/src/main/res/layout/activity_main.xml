@@ -16,14 +16,12 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="445dp"
-            android:layout_height="797dp"
+            android:layout_width="515dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/backblurimage" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,23 +60,33 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="24dp"
                 android:fontFamily="sans-serif-black"
-                android:text="Botão do Pânico"
+                android:text="Clique para ativar o Botão do Pânico"
                 android:textColor="#000"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+                app:layout_constraintTop_toBottomOf="@+id/btnbotaoAlerta" />
+
+            <Button
+                android:id="@+id/btnbotaoAlerta"
+                android:layout_width="261dp"
+                android:layout_height="261dp"
+                android:background="@drawable/panicbutton"
+                app:layout_constraintBottom_toTopOf="@+id/btnSairMain"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView13"
-                android:layout_width="302dp"
-                android:layout_height="308dp"
-                app:srcCompat="@drawable/aviso"
-                tools:layout_editor_absoluteX="39dp"
-                tools:layout_editor_absoluteY="82dp" />
+                android:id="@+id/imageView"
+                android:layout_width="282dp"
+                android:layout_height="397dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnbotaoAlerta"
+                app:layout_constraintEnd_toEndOf="@+id/btnbotaoAlerta"
+                app:layout_constraintStart_toStartOf="@+id/btnbotaoAlerta"
+                app:layout_constraintTop_toTopOf="@+id/btnbotaoAlerta"
+                app:srcCompat="@drawable/aviso" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

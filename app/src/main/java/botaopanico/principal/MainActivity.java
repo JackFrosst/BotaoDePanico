@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
-    ImageView botaoAlerta;
+    Button botaoAlerta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
-        botaoAlerta = findViewById(R.id.imageView13);
+        botaoAlerta = findViewById(R.id.btnbotaoAlerta);
 
         startService(new Intent(getBaseContext(), RecebeAlertaThread.class));
 
