@@ -44,7 +44,7 @@ public class RecebeAlertaThread extends Service {
         String numTelefone = arrayRemetente.get(0).getNumeroCelular();
 
         // metodo rodando buscas no banco de dados do firebase
-        // se tiver alguma informação de alteração a variável snapshot
+        // se tiver alguma informação de alteração, a variável snapshot
         //recebe a alteração e a cada vez que acontece uma atualização é criado uma notificação
         DocumentReference docRef = firebaseFirestore.
                 collection("usuarios").document(numTelefone);
@@ -58,28 +58,27 @@ public class RecebeAlertaThread extends Service {
                 }
 
                 if (snapshot != null && snapshot.exists()) {
-                    Log.d("4343", "Current data: " + snapshot.getData());
+
+                    String tituloAlerta = snapshot.getString("Alerta");
+                    String remetente = snapshot.getString("Remetente");
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        CharSequence name = getString(R.string.alerta);
-                        String description = getString(R.string.descricaoAlerta);
-                        int importance = NotificationManager.IMPORTANCE_HIGH;
-                        NotificationChannel channel = new NotificationChannel("Alertas", name, importance);
-                        channel.setDescription(description);
-                        // Register the channel with the system; you can't change the importance
-                        // or other notification behaviors after this
+                        String id_canal = "Alertas";
+                        CharSequence nome = "Pedido de Ajuda" ;
+                        int importancia = NotificationManager.IMPORTANCE_HIGH;
+                        NotificationChannel channel = new NotificationChannel(id_canal, nome, importancia);
                         NotificationManager notificationManager = getSystemService(NotificationManager.class);
                         notificationManager.createNotificationChannel(channel);
                     }
 
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(RecebeAlertaThread.this, "Alertas")
                             .setSmallIcon(R.drawable.ic_launcher_foreground)
-                            .setContentTitle("Titulo")
-                            .setContentText("Isso é um teste")
-                            .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                            .setContentTitle(tituloAlerta)
+                            .setContentText(remetente)
+                            .setPriority(NotificationCompat.PRIORITY_HIGH);
 
                     NotificationManagerCompat notificationManager = NotificationManagerCompat.from(RecebeAlertaThread.this);
-                    notificationManager.notify(R.string.alerta, builder.build());
+                    notificationManager.notify(1, builder.build());
 
                 } else {
                     Log.d("4343", "Current data: null");
@@ -92,6 +91,7 @@ public class RecebeAlertaThread extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        sendBroadcast(new Intent("chamandoRecebeAlertaThread"));
     }
 
 }

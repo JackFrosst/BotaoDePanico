@@ -39,14 +39,19 @@ public class EnvioAlertaThread extends Service {
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(EnvioAlertaThread.this);
-        ArrayList<Destinatario> arrayList = new ArrayList<>();
-        arrayList = bdSqLiteCadastroLogin.consultarDestinatario();
+        ArrayList<Destinatario> arrayListDest = bdSqLiteCadastroLogin.consultarDestinatario();
+        ArrayList<Remente> arrayListRem = bdSqLiteCadastroLogin.consultarRemetente();
 
-        for (int i = 0; i < arrayList.size(); i++) {
+        for (int i = 0; i < arrayListDest.size(); i++) {
 
-            String numeroDestinatario = arrayList.get(i).getNumeroCelular();
+            String numeroDestinatario = arrayListDest.get(i).getNumeroCelular();
+            String nomeRementente = arrayListRem.get(0).getPrimeiroNome();
+            String sobrenomeRemetente = arrayListRem.get(0).getSegundoNome();
+
             Map<String, String> mensagemDestinatario = new HashMap<>();
-            mensagemDestinatario.put("Alerta","Pedido de Ajuda");
+            mensagemDestinatario.put("Alerta","Emitido pedido de ajuda");
+            mensagemDestinatario.put("Remetente", nomeRementente + " " + sobrenomeRemetente +
+                    ", emitiu um alerta!");
 
             firebaseFirestore.collection("usuarios").document(numeroDestinatario)
                     .set(mensagemDestinatario, SetOptions.merge())
@@ -61,6 +66,7 @@ public class EnvioAlertaThread extends Service {
                         }
                     });
         }
+
         return START_REDELIVER_INTENT;
     }
 

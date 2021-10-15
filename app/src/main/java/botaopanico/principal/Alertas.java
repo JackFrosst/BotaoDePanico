@@ -3,7 +3,13 @@ package botaopanico.principal;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+
+import org.osmdroid.config.Configuration;
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.views.MapView;
 
 public class Alertas extends AppCompatActivity {
    Toolbar toolbar;
@@ -20,6 +26,5 @@ public class Alertas extends AppCompatActivity {
         getSupportActionBar().setTitle("Alertas Recebidos");
 
     }
-
 
 }
