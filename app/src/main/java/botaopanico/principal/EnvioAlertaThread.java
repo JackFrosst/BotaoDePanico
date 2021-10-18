@@ -2,16 +2,23 @@ package botaopanico.principal;
 
 import static android.content.ContentValues.TAG;
 
+import android.Manifest;
 import android.app.IntentService;
 import android.app.Service;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -36,6 +43,7 @@ public class EnvioAlertaThread extends Service {
     //atráves deste método quando aciona o botão os alertas são enviados para os destinatários
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(EnvioAlertaThread.this);
@@ -69,7 +77,6 @@ public class EnvioAlertaThread extends Service {
 
         return START_REDELIVER_INTENT;
     }
-
 
     @Override
     public void onDestroy() {
