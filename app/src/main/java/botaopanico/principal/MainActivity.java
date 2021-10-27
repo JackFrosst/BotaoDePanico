@@ -20,7 +20,8 @@ import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener {
 
     Toolbar toolbar;
     DrawerLayout drawerLayout;
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     Button botaoAlerta;
 
-    @SuppressLint("MissingPermission")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +43,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         verificapermissoes();
 
-        Localizacao localizacao = new Localizacao(MainActivity.this);
-        localizacao.localizacaoAtual(MainActivity.this);
-        Log.e("retorna",localizacao.retornaLocalizacao());
 
         // inicia a classe EnvioAlertaThread, fazendo que a mensagem seja enviada até o banco
         // firestore
@@ -138,8 +135,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Manifest.permission.ACCESS_COARSE_LOCATION}, CODIGO_PERMISSOES_REQUERIDAS);
             }
         }
-
     }
-
 }
 

@@ -3,6 +3,7 @@ package botaopanico.principal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ public class AdicionarRemoverDestinatario extends AppCompatActivity {
     private Destinatario destinatario;
     private BdSqLiteCadastroLogin bdSqLiteCadastroLogin;
     private FirebaseFirestore firebaseFirestore;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,11 @@ public class AdicionarRemoverDestinatario extends AppCompatActivity {
         edtApelidoDestinatario = findViewById(R.id.edtApelidoDestinatario);
         lstDestinatario = findViewById(R.id.lstDestinatario);
 
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setTitle("Adicionar Destinatários");
 
         //chamado do metodo para preencher a lista com os destinatarios que estiverem no banco
         listaDestinatario();

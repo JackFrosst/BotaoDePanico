@@ -3,6 +3,7 @@ package botaopanico.principal;
 import android.content.Context;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -54,6 +55,4 @@ public class OpenStreetMaps extends AppCompatActivity {
         //Configuration.getInstance().save(this, prefs);
         map.onPause();
     }
-
-
 }
