@@ -41,8 +41,11 @@ public class MainActivity extends AppCompatActivity implements
 
         //startService(new Intent(getBaseContext(), RecebeAlertaThread.class));
 
+        //verifica e pede permissão para o usuário usar a localizacão
         verificapermissoes();
-
+        if(verificapermissoes() == true) {
+            LocalizacaoSingleton localizacao = LocalizacaoSingleton.getInstance(MainActivity.this);
+        }
 
         // inicia a classe EnvioAlertaThread, fazendo que a mensagem seja enviada até o banco
         // firestore
@@ -111,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
-    public void verificapermissoes() {
+    public boolean verificapermissoes() {
         final int CODIGO_PERMISSOES_REQUERIDAS = 1;
 
         if ((ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) ||
@@ -134,6 +137,14 @@ public class MainActivity extends AppCompatActivity implements
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.ACCESS_COARSE_LOCATION}, CODIGO_PERMISSOES_REQUERIDAS);
             }
+        }
+
+        if ((ContextCompat.checkSelfPermission
+                (this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED)){
+            return true;
+        }else{
+            return false;
         }
     }
 }

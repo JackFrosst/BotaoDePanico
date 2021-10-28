@@ -2,8 +2,10 @@ package botaopanico.principal;
 
 import android.annotation.SuppressLint;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -25,18 +27,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 // esta classe é utilizada para criar métodos que funcionem em segundo plano
-public class EnvioAlertaThread extends Service implements LocationListener {
+public class EnvioAlertaThread extends Service {
 
     private FirebaseFirestore firebaseFirestore;
     private BdSqLiteCadastroLogin bdSqLiteCadastroLogin;
-    private LocationManager locationManager;
-    private String latitude;
-    private String longitude;
 
     @Override
     public IBinder onBind(Intent arg0) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
     }
 
     //método trabalha em segundo plano sem interferir na atividade principal
@@ -45,10 +49,8 @@ public class EnvioAlertaThread extends Service implements LocationListener {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         firebaseFirestore = FirebaseFirestore.getInstance();
-        //locationManeger é configurado para pegar a localização do gps
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        //locationManeger é configurado com o tempo que deve pegar as atualizações da localização
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,this);
+        LocalizacaoSingleton localizacao = LocalizacaoSingleton.getInstance(EnvioAlertaThread.this);
+        Log.e("teste5",String.valueOf(localizacao.latitude));
 
         //métodos que buscam no banco sqlite o destinatario e o rementente
         // para indentificar quem esta enviando a mensagem e que vai receber
@@ -68,8 +70,6 @@ public class EnvioAlertaThread extends Service implements LocationListener {
             mensagemDestinatario.put("Alerta","Emitido pedido de ajuda");
             mensagemDestinatario.put("Remetente", nomeRementente + " " + sobrenomeRemetente +
                     ", emitiu um alerta!");
-            mensagemDestinatario.put("Latitude",latitude);
-            mensagemDestinatario.put("Longitude",longitude);
 
             firebaseFirestore.collection("usuarios").document(numeroDestinatario)
                     .set(mensagemDestinatario, SetOptions.merge())
@@ -93,25 +93,4 @@ public class EnvioAlertaThread extends Service implements LocationListener {
         super.onDestroy();
     }
 
-    @Override
-    public void onLocationChanged(@NonNull Location location) {
-        Log.e("teste3",String.valueOf(location.getLongitude()));
-        this.latitude = String.valueOf(location.getLatitude());
-        this.longitude = String.valueOf(location.getLongitude());
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(@NonNull String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(@NonNull String provider) {
-
-    }
 }

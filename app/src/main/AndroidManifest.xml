@@ -36,12 +36,6 @@
             android:launchMode="singleTop">
         </activity>
 
-        <activity
-            android:name=".Localizacao"
-            android:launchMode="singleTop">
-
-        </activity>
-
         <activity android:name=".TelaLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -67,8 +61,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-
-
 
     </application>
 
