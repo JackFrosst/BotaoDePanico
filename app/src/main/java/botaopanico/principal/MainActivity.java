@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements
         navigationView = findViewById(R.id.navigationView);
         botaoAlerta = findViewById(R.id.btnbotaoAlerta);
 
-        //startService(new Intent(getBaseContext(), RecebeAlertaThread.class));
+        startService(new Intent(getBaseContext(), RecebeAlertaThread.class));
 
         //verifica e pede permissão para o usuário usar a localizacão
         verificapermissoes();

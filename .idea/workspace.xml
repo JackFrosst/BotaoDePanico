@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="teste5" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="teste7" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
@@ -44,17 +44,25 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/Alertas.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/Alertas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/BdSqLiteCadastroLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/BdSqLiteCadastroLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/EnvioAlertaThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/EnvioAlertaThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/LocalizacaoSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/LocalizacaoSingleton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/OpenStreetMaps.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/OpenStreetMaps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/RecebeAlertaThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/botaopanico/principal/RecebeAlertaThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_alertas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_alertas.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_open_street_maps.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_open_street_maps.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RQ8N303S01A]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -118,7 +126,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-viewC:/Users/mathe/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.4.0/51035a8f6342c20d4d8f242d100e6f25e0c271ac/material-1.4.0-sources.jar!/com/google/android/material/navigation/NavigationView.java_SELECTED" value="NavigationView" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AppCameraGaleria" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MediaSqlLite" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -378,6 +386,21 @@
       <option name="presentableId" value="Default" />
       <updated>1626637034354</updated>
     </task>
+    <task id="LOCAL-00001" summary="add localizacao 2.0 correcoes bugs">
+      <created>1635392168608</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1635392168608</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add localizacao 2.0 correcoes bugs">
+      <created>1635392208270</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1635392208270</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -401,5 +424,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add localizacao 2.0 correcoes bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="add localizacao 2.0 correcoes bugs" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="arrayLocalizacao" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

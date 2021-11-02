@@ -1,6 +1,7 @@
 package botaopanico.principal;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
@@ -18,7 +20,9 @@ import org.osmdroid.views.overlay.Marker;
 
 public class OpenStreetMaps extends AppCompatActivity {
 
-    MapView map;
+    private MapView map;
+    private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,14 +31,27 @@ public class OpenStreetMaps extends AppCompatActivity {
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
         setContentView(R.layout.activity_open_street_maps);
 
+        Intent intent  = getIntent();
+        Double latitude = Double.parseDouble(intent.getStringExtra("latitude"));
+        Double longitude = Double.parseDouble(intent.getStringExtra("longitude"));
+        Log.e("teste7",String.valueOf(latitude));
+        Log.e("teste7",String.valueOf(longitude));
+
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setTitle("Localização");
+
         map = (MapView) findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(true);
         map.setMultiTouchControls(true);
 
         IMapController mapController = map.getController();
-        mapController.setZoom(9.5);
-        GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
+        mapController.setZoom(18.0);
+        GeoPoint startPoint = new GeoPoint(latitude,longitude);
         mapController.setCenter(startPoint);
 
         Marker startMarker = new Marker(map);
