@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
-        botaoAlerta = findViewById(R.id.btnbotaoAlerta);
+        //botaoAlerta = findViewById(R.id.btnbotaoAlerta);          - Criar onClick para ImageView, botão foi retirado
 
         startService(new Intent(getBaseContext(), RecebeAlertaThread.class));
 
