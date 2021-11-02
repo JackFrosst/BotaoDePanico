@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
     // variaveis para criação de banco e tabela de remetente
     private static final String NOME_BANCO = "RemetenteDestinatario.db";
-    private static final int VERSAO = 5;
+    private static final int VERSAO = 7;
     private static final String TABELAREM = "tbRementente";
     private static final String ID = "id";
     private static final String NOME = "nome";
@@ -24,6 +24,9 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
     private static final String ID_DEST = "id";
     private static final String DESTINATARIO = "numDestinatario";
     private static final String NOMEDEST = "nomeDestinatario";
+    private static final String TABELALOCAL = "tbLocalizacao";
+    private static final String LATITUDE = "latitude";
+    private static final String LONGITUDE = "longitude";
 
 
     public BdSqLiteCadastroLogin(Context context) {
@@ -47,7 +50,11 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
                 NOMEDEST + " TEXT);";
 
         db.execSQL(sqlDestinatario);
-
+        String sqlLocalizacao = "CREATE TABLE IF NOT EXISTS " + TABELALOCAL + " (" +
+                LATITUDE + " TEXT," +
+                LONGITUDE + " TEXT," +
+                NOME + " TEXT);";
+        db.execSQL(sqlLocalizacao);
     }
 
     @Override
@@ -177,4 +184,51 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
         retornoDB = getWritableDatabase().delete(TABELADEST, ID_DEST + "=?", args);
         return retornoDB;
     }
+
+   // ============== metodos para o cadastrar,alterar,excluir e consultar a tabela LOCALIZACAO =====
+
+    public long cadastrarLocalizacao(Localizacao localizacao) {
+        ContentValues valores = new ContentValues();
+        long retornoDB;
+
+        valores.put(LATITUDE, localizacao.getLatitude());
+        valores.put(LONGITUDE, localizacao.getLongitude());
+        valores.put(NOME, localizacao.getNomeRementente());
+
+        retornoDB = getWritableDatabase().insert(TABELALOCAL, null, valores);
+        return retornoDB;
+    }
+
+    public ArrayList<Localizacao> consultarLocalizacao() {
+
+        String[] colunas = {LATITUDE, LONGITUDE, NOME};
+
+        Cursor cursor = getWritableDatabase().query(TABELALOCAL, colunas, null,
+                null, null, null,
+                null);
+
+        ArrayList<Localizacao> listaLocalizacao = new ArrayList<>();
+
+        Localizacao localizacao;
+
+        while (cursor.moveToNext()) {
+            localizacao = new Localizacao();
+
+            localizacao.setLatitude(cursor.getString(0));
+            localizacao.setLongitude(cursor.getString(1));
+            localizacao.setNomeRementente(cursor.getString(2));
+            listaLocalizacao.add(localizacao);
+        }
+
+        return listaLocalizacao;
+    }
+
+    public long excluirLocalizacao(Localizacao localizacao) {
+        long retornoDB;
+        String[] args = {String.valueOf(localizacao.getNomeRementente())};
+        retornoDB = getWritableDatabase().delete(TABELALOCAL, NOME + "=?", args);
+        return retornoDB;
+    }
+
+
 }

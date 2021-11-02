@@ -24,6 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 // esta classe é utilizada para criar métodos que funcionem em segundo plano
@@ -31,6 +32,8 @@ public class EnvioAlertaThread extends Service {
 
     private FirebaseFirestore firebaseFirestore;
     private BdSqLiteCadastroLogin bdSqLiteCadastroLogin;
+    private String latitude;
+    private String longitude;
 
     @Override
     public IBinder onBind(Intent arg0) {
@@ -50,7 +53,8 @@ public class EnvioAlertaThread extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         firebaseFirestore = FirebaseFirestore.getInstance();
         LocalizacaoSingleton localizacao = LocalizacaoSingleton.getInstance(EnvioAlertaThread.this);
-        Log.e("teste5",String.valueOf(localizacao.latitude));
+        latitude = localizacao.latitude;
+        longitude = localizacao.longitude;
 
         //métodos que buscam no banco sqlite o destinatario e o rementente
         // para indentificar quem esta enviando a mensagem e que vai receber
@@ -70,6 +74,10 @@ public class EnvioAlertaThread extends Service {
             mensagemDestinatario.put("Alerta","Emitido pedido de ajuda");
             mensagemDestinatario.put("Remetente", nomeRementente + " " + sobrenomeRemetente +
                     ", emitiu um alerta!");
+            if(latitude != null && longitude != null){
+                mensagemDestinatario.put("Latitude",latitude);
+                mensagemDestinatario.put("Longitude",longitude);
+            }
 
             firebaseFirestore.collection("usuarios").document(numeroDestinatario)
                     .set(mensagemDestinatario, SetOptions.merge())

@@ -24,8 +24,8 @@ import java.util.ArrayList;
 
 // esta classe é utilizada para criar métodos que funcionem em segundo plano
 public class RecebeAlertaThread extends Service {
-    FirebaseFirestore firebaseFirestore;
-    BdSqLiteCadastroLogin bdSqLiteCadastroLogin;
+    private FirebaseFirestore firebaseFirestore;
+    private BdSqLiteCadastroLogin bdSqLiteCadastroLogin;
 
     @Nullable
     @Override
@@ -81,7 +81,7 @@ public class RecebeAlertaThread extends Service {
                     notificationManager.notify(1, builder.build());
 
                 } else {
-                    Log.d("4343", "Current data: null");
+
                 }
             }
         });

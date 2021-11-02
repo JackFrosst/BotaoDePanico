@@ -19,15 +19,15 @@ public class LocalizacaoSingleton extends Service implements LocationListener {
 
     private volatile static LocalizacaoSingleton instance;
     private LocationManager locationManager;
-    double latitude;
-    double longitude;
+    String latitude;
+    String longitude;
 
     @SuppressLint("MissingPermission")
     private LocalizacaoSingleton(Context context){
         locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,this);
-
     }
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -50,9 +50,8 @@ public class LocalizacaoSingleton extends Service implements LocationListener {
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
-        Log.e("teste6",String.valueOf(location.getLongitude()));
-        latitude = location.getLatitude();
-        longitude = location.getLongitude();
+        latitude = String.valueOf(location.getLatitude());
+        longitude = String.valueOf(location.getLongitude());
     }
 
     @Override
