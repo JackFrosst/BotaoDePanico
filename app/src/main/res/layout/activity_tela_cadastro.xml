@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backblurimage"
+    android:background="@drawable/constraintprimaria"
     tools:context=".TelaCadastro">
 
 
@@ -29,13 +29,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConstraintViewBlur"
-        android:layout_width="381dp"
-        android:layout_height="430dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="170dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/backgradient"
+        android:layout_marginBottom="165dp"
+        android:background="@drawable/constraintsecundaria"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,33 +45,17 @@
             android:id="@+id/btnEnviar"
             android:layout_width="0dp"
             android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/cancela"
             android:text="Cadastrar"
             android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnCancelar"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/btnCancelar"
-            android:layout_width="0dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/envia"
-            android:text="Cancelar"
-            android:textAllCaps="false"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btnEnviar" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/edtNome"
@@ -80,7 +64,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/caixastexto"
             android:ems="10"
             android:hint="Nome"
@@ -90,6 +74,7 @@
             android:textColorHint="#6E6161"
             app:layout_constraintBottom_toTopOf="@+id/edtSobrenome"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
@@ -99,7 +84,7 @@
             android:layout_height="47dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/caixastexto"
             android:ems="10"
             android:hint="Sobrenome"
@@ -114,9 +99,10 @@
 
         <EditText
             android:id="@+id/edtNumTelefone"
-            android:layout_width="206dp"
+            android:layout_width="0dp"
             android:layout_height="47dp"
             android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/caixastexto"
             android:ems="10"
@@ -126,6 +112,7 @@
             android:inputType="phone"
             android:textColor="#000"
             app:layout_constraintBottom_toTopOf="@+id/btnEnviar"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtSobrenome" />
 
@@ -136,7 +123,6 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/edtNome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.537"
             app:layout_constraintStart_toStartOf="parent"

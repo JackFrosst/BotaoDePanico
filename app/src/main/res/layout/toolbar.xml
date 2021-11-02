@@ -8,7 +8,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="#E5646E"
+        android:background="#cb9ca1"
         />
 
 </LinearLayout>
