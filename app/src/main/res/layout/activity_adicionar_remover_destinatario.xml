@@ -28,19 +28,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include">
+            app:layout_constraintTop_toBottomOf="@id/include">
 
             <Button
                 android:id="@+id/btnCadastraDestinatario"
                 android:layout_width="0dp"
                 android:layout_height="33dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/cancela"
                 android:text="Cadastrar"
                 android:textAllCaps="false"
                 android:textColor="#000"
+                app:layout_constraintBottom_toTopOf="@+id/lstDestinatario"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,7 @@
                 android:layout_height="47dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="90dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/caixastexto"
                 android:ems="10"
                 android:hint="Número de telefone"

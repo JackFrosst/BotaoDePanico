@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity implements
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
-    Button botaoAlerta;
+    //Button botaoAlerta;
+    ImageView botaoAlerta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
-        //botaoAlerta = findViewById(R.id.btnbotaoAlerta);          - Criar onClick para ImageView, botão foi retirado
+        botaoAlerta = findViewById(R.id.btnbotaoAlerta);        //  - Criar onClick para ImageView, botão foi retirado
 
         //startService(new Intent(getBaseContext(), RecebeAlertaThread.class));
 
