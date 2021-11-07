@@ -32,10 +32,10 @@ public class OpenStreetMaps extends AppCompatActivity {
         setContentView(R.layout.activity_open_street_maps);
 
         Intent intent  = getIntent();
-        Double latitude = Double.parseDouble(intent.getStringExtra("latitude"));
-        Double longitude = Double.parseDouble(intent.getStringExtra("longitude"));
-        Log.e("teste7",String.valueOf(latitude));
-        Log.e("teste7",String.valueOf(longitude));
+        Bundle extras = intent.getExtras();
+        Double latitude = Double.parseDouble(extras.getString("latitude"));
+        Double longitude = Double.parseDouble(extras.getString("longitude"));
+
 
 
         toolbar = findViewById(R.id.toolbar);
@@ -51,13 +51,13 @@ public class OpenStreetMaps extends AppCompatActivity {
 
         IMapController mapController = map.getController();
         mapController.setZoom(18.0);
-        GeoPoint startPoint = new GeoPoint(latitude,longitude);
+        GeoPoint startPoint = new GeoPoint(latitude, longitude);
         mapController.setCenter(startPoint);
-
         Marker startMarker = new Marker(map);
         startMarker.setPosition(startPoint);
         startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         map.getOverlays().add(startMarker);
+
 
     }
     public void onResume(){

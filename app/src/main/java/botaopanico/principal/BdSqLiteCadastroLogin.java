@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
     // variaveis para criação de banco e tabela de remetente
     private static final String NOME_BANCO = "RemetenteDestinatario.db";
-    private static final int VERSAO = 7;
+    private static final int VERSAO = 8;
     private static final String TABELAREM = "tbRementente";
     private static final String ID = "id";
     private static final String NOME = "nome";
@@ -24,9 +24,11 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
     private static final String ID_DEST = "id";
     private static final String DESTINATARIO = "numDestinatario";
     private static final String NOMEDEST = "nomeDestinatario";
+    // variavies para a criação da tabela notificação
     private static final String TABELALOCAL = "tbLocalizacao";
     private static final String LATITUDE = "latitude";
     private static final String LONGITUDE = "longitude";
+    private static final String CODALERTA = "codAlerta";
 
 
     public BdSqLiteCadastroLogin(Context context) {
@@ -53,7 +55,9 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
         String sqlLocalizacao = "CREATE TABLE IF NOT EXISTS " + TABELALOCAL + " (" +
                 LATITUDE + " TEXT," +
                 LONGITUDE + " TEXT," +
-                NOME + " TEXT);";
+                NOME + " TEXT," +
+                CODALERTA + " TEXT);";
+
         db.execSQL(sqlLocalizacao);
     }
 
@@ -194,6 +198,7 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
         valores.put(LATITUDE, localizacao.getLatitude());
         valores.put(LONGITUDE, localizacao.getLongitude());
         valores.put(NOME, localizacao.getNomeRementente());
+        valores.put(CODALERTA, localizacao.getCodAlerta());
 
         retornoDB = getWritableDatabase().insert(TABELALOCAL, null, valores);
         return retornoDB;
@@ -201,7 +206,7 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
 
     public ArrayList<Localizacao> consultarLocalizacao() {
 
-        String[] colunas = {LATITUDE, LONGITUDE, NOME};
+        String[] colunas = {LATITUDE, LONGITUDE, NOME, CODALERTA};
 
         Cursor cursor = getWritableDatabase().query(TABELALOCAL, colunas, null,
                 null, null, null,
@@ -217,6 +222,7 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
             localizacao.setLatitude(cursor.getString(0));
             localizacao.setLongitude(cursor.getString(1));
             localizacao.setNomeRementente(cursor.getString(2));
+            localizacao.setCodAlerta(cursor.getString(3));
             listaLocalizacao.add(localizacao);
         }
 
@@ -225,8 +231,8 @@ public class BdSqLiteCadastroLogin extends SQLiteOpenHelper {
 
     public long excluirLocalizacao(Localizacao localizacao) {
         long retornoDB;
-        String[] args = {String.valueOf(localizacao.getNomeRementente())};
-        retornoDB = getWritableDatabase().delete(TABELALOCAL, NOME + "=?", args);
+        String[] args = {String.valueOf(localizacao.getCodAlerta())};
+        retornoDB = getWritableDatabase().delete(TABELALOCAL, CODALERTA + "=?", args);
         return retornoDB;
     }
 

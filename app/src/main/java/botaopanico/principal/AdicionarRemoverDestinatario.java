@@ -78,9 +78,6 @@ public class AdicionarRemoverDestinatario extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(AdicionarRemoverDestinatario.this);
                                 destinatario = (Destinatario) parent.getItemAtPosition(position);
-                                Log.e("4343",String.valueOf(destinatario.getId()));
-                                Log.e("4343",String.valueOf(position));
-
                                 bdSqLiteCadastroLogin.excluirDestinatario(destinatario);
                                 listaDestinatario();
                             }
@@ -107,8 +104,8 @@ public class AdicionarRemoverDestinatario extends AppCompatActivity {
                     android.R.layout.simple_list_item_1,arrayDestinatario);
             lstDestinatario.setAdapter(adapterDestinatario);
         }
-
     }
+
     //metodo para verificar se o destinatario existe no banco do firebase antes de cadastrar na lista do sqlite
     public void consultaCadastraDestinatario(){
         firebaseFirestore = FirebaseFirestore.getInstance();

@@ -2,30 +2,17 @@ package botaopanico.principal;
 
 import android.annotation.SuppressLint;
 import android.app.Service;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Bundle;
 import android.os.IBinder;
-import android.util.Log;
-
 import androidx.annotation.NonNull;
-
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
+import java.util.UUID;
 
 // esta classe é utilizada para criar métodos que funcionem em segundo plano
 public class EnvioAlertaThread extends Service {
@@ -69,18 +56,23 @@ public class EnvioAlertaThread extends Service {
             String numeroDestinatario = arrayListDest.get(i).getNumeroCelular();
             String nomeRementente = arrayListRem.get(0).getPrimeiroNome();
             String sobrenomeRemetente = arrayListRem.get(0).getSegundoNome();
+            String verificaNotificacao = "0";
+            UUID uuid = UUID.randomUUID();
+            String codAlerta = uuid.toString();
 
             Map<String, String> mensagemDestinatario = new HashMap<>();
             mensagemDestinatario.put("Alerta","Emitido pedido de ajuda");
             mensagemDestinatario.put("Remetente", nomeRementente + " " + sobrenomeRemetente +
                     ", emitiu um alerta!");
+            mensagemDestinatario.put("statusNotificacao",verificaNotificacao);
+            mensagemDestinatario.put("codAlerta",codAlerta);
             if(latitude != null && longitude != null){
                 mensagemDestinatario.put("Latitude",latitude);
                 mensagemDestinatario.put("Longitude",longitude);
             }
 
             firebaseFirestore.collection("usuarios").document(numeroDestinatario)
-                    .set(mensagemDestinatario, SetOptions.merge())
+                    .set(mensagemDestinatario,SetOptions.merge())
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

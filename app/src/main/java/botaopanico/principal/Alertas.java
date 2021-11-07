@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -52,16 +53,22 @@ public class Alertas extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("Alertas Recebidos");
 
+        listarAlertas();
         recebeAlertas();
 
         lstRecebeAlerta.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Localizacao localizacao = (Localizacao) parent.getItemAtPosition(position);
-                Intent intent = new Intent(Alertas.this, OpenStreetMaps.class);
-                intent.putExtra("latitude",localizacao.getLatitude());
-                intent.putExtra("longitude", localizacao.getLongitude());
-                startActivity(intent);
+                if(localizacao.getLatitude().equals("null") && localizacao.getLongitude().equals("null")){
+                    Toast.makeText(Alertas.this, "Remetente não enviou a localização",
+                            Toast.LENGTH_LONG).show();
+                }else {
+                    Intent intent = new Intent(Alertas.this, OpenStreetMaps.class);
+                    intent.putExtra("latitude", localizacao.getLatitude());
+                    intent.putExtra("longitude", localizacao.getLongitude());
+                    startActivity(intent);
+                }
             }
         });
 
@@ -77,6 +84,7 @@ public class Alertas extends AppCompatActivity {
                                 bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(Alertas.this);
                                 Localizacao localizacao = (Localizacao) parent.getItemAtPosition(position);
                                 bdSqLiteCadastroLogin.excluirLocalizacao(localizacao);
+                                listarAlertas();
                             }
                         }).setNegativeButton("Não", new DialogInterface.OnClickListener() {
                             @Override
@@ -103,22 +111,59 @@ public class Alertas extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot snapshot,
                                 @Nullable FirebaseFirestoreException e) {
                 if (snapshot != null && snapshot.exists()) {
+                    //variaveis sendo preenchidas com os valores que estão no FireBase
+                    arrayLocalizacao = bdSqLiteCadastroLogin.consultarLocalizacao();
                     localizacao.setLatitude(String.valueOf(snapshot.get("Latitude")));
                     localizacao.setLongitude(String.valueOf(snapshot.get("Longitude")));
                     localizacao.setNomeRementente(String.valueOf(snapshot.get("Remetente")));
+                    localizacao.setCodAlerta(String.valueOf(snapshot.get("codAlerta")));
+                    String codAlertaFireBase = String.valueOf(snapshot.get("codAlerta"));
+                    String codAlertaLocal = "";
+                    // verifica o tamanho da variável
+                    int tamanho = arrayLocalizacao.size();
+                    //se o tamanho for > 0 a variável recebe os valores
+                    if(tamanho > 0){
+                        codAlertaLocal = arrayLocalizacao.get(arrayLocalizacao.size() - 1).getCodAlerta();
+                    }
 
-                    if(localizacao.getNomeRementente() != "null" ) {
+                    //verficações para evitar que na lista entre null, cadastrar o primeiro alerta,
+                    // evitar alertas repitidos e por último cadastrar novo alertasa
+                    if(codAlertaFireBase == "null"){
+
+                    }else if(tamanho == 0){
+                        bdSqLiteCadastroLogin.cadastrarLocalizacao(localizacao);
+                        arrayLocalizacao = bdSqLiteCadastroLogin.consultarLocalizacao();
+                        adapterLocalizaco = new ArrayAdapter<>(Alertas.this,
+                                android.R.layout.simple_list_item_1, arrayLocalizacao);
+                        lstRecebeAlerta.setAdapter(adapterLocalizaco);
+                    }else if(tamanho > 0 && codAlertaFireBase.equals(codAlertaLocal)){
+
+                    }else{
                         bdSqLiteCadastroLogin.cadastrarLocalizacao(localizacao);
                         arrayLocalizacao = bdSqLiteCadastroLogin.consultarLocalizacao();
                         adapterLocalizaco = new ArrayAdapter<>(Alertas.this,
                                 android.R.layout.simple_list_item_1, arrayLocalizacao);
                         lstRecebeAlerta.setAdapter(adapterLocalizaco);
                     }
-                } else {
 
                 }
             }
+
         });
 
     }
+
+    public void listarAlertas(){
+       bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(Alertas.this);
+       arrayLocalizacao = bdSqLiteCadastroLogin.consultarLocalizacao();
+       bdSqLiteCadastroLogin.close();
+
+        if(arrayLocalizacao != null){
+            adapterLocalizaco = new ArrayAdapter<>(this,
+                    android.R.layout.simple_list_item_1,arrayLocalizacao);
+            lstRecebeAlerta.setAdapter(adapterLocalizaco);
+        }
+    }
+
+
 }

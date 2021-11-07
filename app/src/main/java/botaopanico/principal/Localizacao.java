@@ -4,6 +4,15 @@ public class Localizacao {
     private String latitude;
     private String longitude;
     private String nomeRementente;
+    private String codAlerta;
+
+    public String getCodAlerta() {
+        return codAlerta;
+    }
+
+    public void setCodAlerta(String codAlerta) {
+        this.codAlerta = codAlerta;
+    }
 
     public String getNomeRementente() {
         return nomeRementente;
