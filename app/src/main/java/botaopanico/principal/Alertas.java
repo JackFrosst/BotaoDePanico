@@ -110,8 +110,7 @@ public class Alertas extends AppCompatActivity {
                     if(localizacao.getNomeRementente() != "null" ) {
                         bdSqLiteCadastroLogin.cadastrarLocalizacao(localizacao);
                         arrayLocalizacao = bdSqLiteCadastroLogin.consultarLocalizacao();
-                        adapterLocalizaco = new ArrayAdapter<>(Alertas.this,
-                                android.R.layout.simple_list_item_1, arrayLocalizacao);
+                        adapterLocalizaco = new ArrayAdapter<>(Alertas.this, R.layout.design_lista, arrayLocalizacao);
                         lstRecebeAlerta.setAdapter(adapterLocalizaco);
                     }
                 } else {

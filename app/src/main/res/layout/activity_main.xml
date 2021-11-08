@@ -30,13 +30,15 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="249dp"
+                android:layout_height="35dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="197dp"
                 android:fontFamily="sans-serif-black"
+                android:gravity="center"
                 android:text="Clique para ativar o Botão do Pânico"
                 android:textColor="#000"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.537"
