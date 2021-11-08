@@ -10,8 +10,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -28,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
-    //Button botaoAlerta;
     ImageView botaoAlerta;
 
     @Override
@@ -39,13 +40,15 @@ public class MainActivity extends AppCompatActivity implements
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
-        botaoAlerta = findViewById(R.id.btnbotaoAlerta);        //  - Criar onClick para ImageView, botão foi retirado
-
+        botaoAlerta = findViewById(R.id.btnbotaoAlerta);
+        // verifica se o gps do usuário esta ativo
+        LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
+        boolean ligadoGPS = manager.isProviderEnabled( LocationManager.GPS_PROVIDER);
         startService(new Intent(getBaseContext(), RecebeAlertaThread.class));
 
         //verifica e pede permissão para o usuário usar a localizacão
         verificapermissoes();
-        if(verificapermissoes() == true) {
+        if(verificapermissoes() == true && ligadoGPS == true) {
             LocalizacaoSingleton localizacao = LocalizacaoSingleton.getInstance(MainActivity.this);
         }
 

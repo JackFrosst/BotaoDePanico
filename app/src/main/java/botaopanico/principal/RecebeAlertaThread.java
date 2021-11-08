@@ -19,8 +19,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 // esta classe é utilizada para criar métodos que funcionem em segundo plano
 public class RecebeAlertaThread extends Service {
@@ -52,16 +55,16 @@ public class RecebeAlertaThread extends Service {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot,
                                 @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    Log.e("4343", "Listen failed.", e);
-                    return;
-                }
-
                 if (snapshot != null && snapshot.exists()) {
-
+                    //strings alimentadas pela variavel snapshot que retorna do servidor firebase
                     String tituloAlerta = snapshot.getString("Alerta");
                     String remetente = snapshot.getString("Remetente");
-
+                    String statusNotificacao = "1";
+                    //verifica se existe o statusNotificacao antes de preencher a váriavel
+                    if (snapshot.getString("statusNotificacao") != null) {
+                        statusNotificacao = snapshot.getString("statusNotificacao");
+                    }
+                    //verifica se a necessidade de criar um canal de notificação de acordo com a versão do SDK
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         String id_canal = "Alertas";
                         CharSequence nome = "Pedido de Ajuda" ;
@@ -70,17 +73,26 @@ public class RecebeAlertaThread extends Service {
                         NotificationManager notificationManager = getSystemService(NotificationManager.class);
                         notificationManager.createNotificationChannel(channel);
                     }
-
+                    //Cria a notificação
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(RecebeAlertaThread.this, "Alertas")
                             .setSmallIcon(R.drawable.ic_launcher_foreground)
                             .setContentTitle(tituloAlerta)
                             .setContentText(remetente)
                             .setPriority(NotificationCompat.PRIORITY_HIGH);
-
+                    //Exibe a notificação que foi criada acima
                     NotificationManagerCompat notificationManager = NotificationManagerCompat.from(RecebeAlertaThread.this);
-                    notificationManager.notify(1, builder.build());
+                    //é realizado uma verificação caso o valor da variavel statusNotificacao seja "0", é exibido
+                    //a noticação e é alterado o valor no banco para "1", para que não seja exibido mais a notificação
+                    if(statusNotificacao.equals("0")) {
+                        Map<String, String> mudaStatusNoti = new HashMap<>();
+                        mudaStatusNoti.put("statusNotificacao","1");
+                        notificationManager.notify(1, builder.build());
+                        firebaseFirestore.collection("usuarios")
+                                .document(numTelefone)
+                                .set(mudaStatusNoti, SetOptions.merge());
+                    }else{
 
-                } else {
+                    }
 
                 }
             }
