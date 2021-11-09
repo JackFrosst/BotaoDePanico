@@ -12,9 +12,6 @@
             <item
                 android:id="@+id/duvida"
                 android:title="Dúvidas" />
-            <item
-                android:id="@+id/configuracao"
-                android:title="Configurações" />
         </menu>
     </item>
 
