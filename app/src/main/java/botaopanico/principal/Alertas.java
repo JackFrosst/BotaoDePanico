@@ -4,30 +4,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-
-import org.osmdroid.config.Configuration;
-import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
-import org.osmdroid.views.MapView;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Alertas extends AppCompatActivity {
@@ -134,7 +123,7 @@ public class Alertas extends AppCompatActivity {
                         bdSqLiteCadastroLogin.cadastrarLocalizacao(localizacao);
                         arrayLocalizacao = bdSqLiteCadastroLogin.consultarLocalizacao();
                         adapterLocalizaco = new ArrayAdapter<>(Alertas.this,
-                                android.R.layout.simple_list_item_1, arrayLocalizacao);
+                                R.layout.design_lista, arrayLocalizacao);
                         lstRecebeAlerta.setAdapter(adapterLocalizaco);
                     }else if(tamanho > 0 && codAlertaFireBase.equals(codAlertaLocal)){
 
@@ -159,7 +148,7 @@ public class Alertas extends AppCompatActivity {
 
         if(arrayLocalizacao != null){
             adapterLocalizaco = new ArrayAdapter<>(this,
-                    android.R.layout.simple_list_item_1,arrayLocalizacao);
+                    R.layout.design_lista,arrayLocalizacao);
             lstRecebeAlerta.setAdapter(adapterLocalizaco);
         }
     }
