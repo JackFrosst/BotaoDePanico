@@ -96,9 +96,11 @@ public class MainActivity extends AppCompatActivity implements
                 fechaMenuGaveta();
                 break;
             case R.id.duvida:
+                chamaAtividade(Duvida.class);
                 fechaMenuGaveta();
                 break;
-            case R.id.configuracao:
+            case R.id.sobre:
+                chamaAtividade(Sobre.class);
                 fechaMenuGaveta();
                 break;
             default:
