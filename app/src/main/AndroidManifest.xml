@@ -19,10 +19,12 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
         <activity
             android:name=".Duvida"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".Sobre"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".AdicionarRemoverDestinatario"
             android:exported="true"
