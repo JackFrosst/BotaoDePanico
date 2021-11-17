@@ -5,13 +5,19 @@
         <menu>
             <item
                 android:id="@+id/adicionarRemoverDestinatario"
-                android:title="Adicionar Destinatario" />
+                android:title="Adicionar Destinatario"
+                android:icon="@drawable/addduser"/>
+
             <item
                 android:id="@+id/alerta"
                 android:title="Alertas" />
             <item
                 android:id="@+id/duvida"
                 android:title="Dúvidas" />
+            <item
+                android:id="@+id/sobre"
+                android:title="Sobre" />
+
         </menu>
     </item>
 
