@@ -65,7 +65,7 @@ public class TelaCadastro extends AppCompatActivity implements GoogleApiClient.C
 
     // metodo utilizado para cadastrar remetentes no banco de dados firestore e sqlite
     // o cadastro no sqlite só ocorre se for cadastrado com sucesso no firestore
-    public void cadastroRemetente() {
+    private void cadastroRemetente() {
         firebaseFirestore = FirebaseFirestore.getInstance();
         remente = new Remente();
         BdSqLiteCadastroLogin bdSqLiteCadastroLogin = new BdSqLiteCadastroLogin(TelaCadastro.this);

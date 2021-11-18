@@ -3,12 +3,9 @@ package botaopanico.principal;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
@@ -75,7 +72,7 @@ public class RecebeAlertaThread extends Service {
                     }
                     //Cria a notificação
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(RecebeAlertaThread.this, "Alertas")
-                            .setSmallIcon(R.drawable.ic_launcher_foreground)
+                            .setSmallIcon(R.drawable.button)
                             .setContentTitle(tituloAlerta)
                             .setContentText(remetente)
                             .setPriority(NotificationCompat.PRIORITY_HIGH);
