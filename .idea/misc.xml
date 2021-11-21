@@ -15,15 +15,18 @@
         <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/hintfont.xml" value="0.3828125" />
         <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/ic_baseline_done_24.xml" value="0.3828125" />
         <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/lista_design.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/lista_fora_design.xml" value="0.1" />
         <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/panicbutton.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/drawable/respostas.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_Ajuda.xml" value="0.1328125" />
         <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_adicionar_remover_destinatario.xml" value="0.33" />
-        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_alertas.xml" value="0.35260416666666666" />
-        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_duvida.xml" value="0.3625" />
-        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_alertas.xml" value="0.3625" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_duvida.xml" value="0.33" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_open_street_maps.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_sobre.xml" value="0.3625" />
-        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_tela_cadastro.xml" value="0.5" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_sobre.xml" value="0.3619344773790952" />
+        <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_tela_cadastro.xml" value="0.3625" />
         <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/activity_tela_login.xml" value="0.33" />
         <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/design_lista.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/Moises/Documents/ETEC/PAM/AndroidStudioProjects/BotaoDePanico/app/src/main/res/layout/duvida.xml" value="0.3625" />

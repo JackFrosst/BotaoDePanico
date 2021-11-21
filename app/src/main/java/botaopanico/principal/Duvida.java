@@ -5,7 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 
-public class Duvida extends AppCompatActivity {
+public class    Duvida extends AppCompatActivity {
     private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
